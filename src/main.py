@@ -1,6 +1,6 @@
 import datetime
 
-def main(num_people, shifts):
+def splitShifts(num_people, shifts):
   calendar = {}
 
   for shift in shifts:
@@ -16,7 +16,7 @@ def main(num_people, shifts):
       slot_end_time = slot_start_time + datetime.timedelta(hours=shift_slot)
       i=i+1
 
-      calendar[f"Gard {person}"] = {
+      calendar[f"Gard name: {person}"] = {
         "start_time": slot_start_time.strftime("%Y-%m-%d %H:%M"),
         "end_time": slot_end_time.strftime("%Y-%m-%d %H:%M"),
       }
@@ -30,5 +30,5 @@ if __name__ == '__main__':
     {"start_time": "2024-05-12 10:00", "end_time": "2024-05-14 14:40"},
   ]
 
-  calendar = main(num_people, shifts)
+  calendar = splitShifts(num_people, shifts)
   print(calendar)
